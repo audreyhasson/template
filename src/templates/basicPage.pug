@@ -1,7 +1,10 @@
 extends page.pug
 
 block content
-  section.hero.is-medium.is-primary
-    .container
-      .hero-body
-        h1.title.is-1 #{page}
+  .columns
+    .column.is-one-fifth.has-background-warning.conditionalClose#nav
+      //navigation here
+      p Hi there, I'm the navigation
+    .column
+      //everything else here
+      block page 

@@ -25,6 +25,45 @@
 // TELL BULMA TO USE FONTS LIKE THIS (the rest of the list are Bulma's default fonts):
 $family-sans-serif: 'Montserrat', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
+//NAV/HEADER STYLING
+.name
+  margin: auto
+
+#nav.is-active
+  display: block
+
+#nav
+  display: none
+
+.conditionalOpen
+  animation: slideOpen normal forwards
+  animation-duration: 4s
+  overflow: hidden
+
+.conditionalClose
+  animation: slideClosed normal forwards ease-in-out
+  animation-duration: 1s
+  transform-origin: 100% 0%
+  overflow: hidden
+
+@keyframes slideOpen
+  from
+    width: 0
+    padding: 0
+  to
+    max-width: 100%
+
+
+
+@keyframes slideClosed
+  from
+    max-width: 100%
+
+  to
+    width: 0%
+
+
+
 // USE BULMA~THIS:
 // @import '~bulma/sass/utilities/_all.sass'
 
