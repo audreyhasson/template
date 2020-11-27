@@ -4,10 +4,10 @@
     title: "Bubble Trouble",
     companyName: "Audrey Hasson",
     links: [
-      ["Home", "/"],
-      ["Learning", "/learning.pug"],
-      ["Resources", "/resources.pug"],
-      ["About", "/about.pug"],
+      ["Home", "/", "Let's talk texts", "fas fa-home"],
+      ["Learning", "/learning.pug", "Again, but slower", "fas fa-cubes"],
+      ["Resources", "/resources.pug", "Educational tools available", "fas fa-book-open"],
+      ["About", "/about.pug", "Meet our team", "fas fa-users"],
     ],
     email: "someone@example.com"
   }

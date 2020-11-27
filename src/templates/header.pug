@@ -1,7 +1,10 @@
-nav.navbar(role='navigation', aria-label='main navigation')
-  .burger.px-2#burger
-    p.is-size-1 X
-  .name
-    a.is-flex.py-3.px-3.is-align-content-center(href='/')
-      img.image.is-48x48(src='/images/logo.svg', alt='Brand Logo')
-      h1.title.pt-1 &nbsp#{title}
+header
+  .columns.is-mobile
+    .column.is-1
+      .burger.px-2.is-flex#burger
+        p.is-size-3.pt-3.px-2.flip-burger 
+    .column.is-6.is-offset-2.is-centered.is-flex.is-align-content-center
+      .name.has-text-centered
+        a.py-3.px-3(href='/').is-flex.is-flex-wrap-nowrap
+          img.image.is-48x48(src='/images/logo.svg', alt='Brand Logo')
+          h1.title.pt-1.has-text-centered &nbsp#{title}

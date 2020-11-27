@@ -9,10 +9,22 @@
 // SET USABLE CUSTOM COLORS LIKE THIS:
 // $custom-colors: ('palette-light': $palette-light, 'palette-mid': $palette-mid, 'palette-dull': $palette-dull, 'palette-dark': $palette-dark)
 
-// SET OTHER BULMA VARIABLES LIKE THIS:
-// $primary: $palette-mid
-// $light: $palette-light
-// $dark: $palette-dark
+//bright green
+$primary: #0AF77C
+//dark blue
+$info: #2870d4
+// footer
+$dark: #404040
+// index background gray
+$light: #E8E8E8
+
+$light-gray: #C6C6C6
+//
+  blue: #2870d4
+  light gray: #C6C6C6
+  dark gray: #3B3B3B
+  darker gray: #2A2A2A
+  bright green: #0AF77C
 
 // IMPORT FONTS LIKE THIS:
 @font-face
@@ -29,40 +41,86 @@ $family-sans-serif: 'Montserrat', BlinkMacSystemFont, -apple-system, 'Segoe UI',
 .name
   margin: auto
 
-#nav.is-active
-  display: block
-
-#nav
-  display: none
-
 .conditionalOpen
-  animation: slideOpen normal forwards
-  animation-duration: 4s
+  animation: slideOpen normal forwards ease-out
+  animation-duration: 1s
   overflow: hidden
 
 .conditionalClose
-  animation: slideClosed normal forwards ease-in-out
+  animation: slideClosed normal forwards
   animation-duration: 1s
-  transform-origin: 100% 0%
   overflow: hidden
+
+.column.navslider.conditionalClose.hideMe
+  display: none
+
+.column.navslider
+  background-color: #FBFBFB
 
 @keyframes slideOpen
   from
-    width: 0
-    padding: 0
+    margin-left: -25%
+    padding-right: 0
+    padding-left: 0
   to
-    max-width: 100%
-
-
+    margin-left: 0px
 
 @keyframes slideClosed
   from
-    max-width: 100%
-
+    margin-left: 0px
   to
-    width: 0%
+    margin-left: -25%
+    padding-right: 0
+    padding-left: 0
 
+p.flip-burger::after
+  content: "☰"
 
+.is-active p.flip-burger::after
+  content: "✕"
+
+//each link things
+.box.navlinks a
+  color: #3B3B3B
+
+.box.navlinks i
+  color: white
+  background-color: $light-gray
+  padding: 15px
+  border-radius: 100px
+
+.box.navlinks.is-active
+  background-color: $info
+
+.box.navlinks.is-active a
+  color: white
+
+.box.navlinks.is-active i
+  color: $light-gray
+  background-color: white
+
+//onhover
+.box.navlinks:hover
+  background-color: $light-gray
+  transition: .3s
+
+.box.navlinks:hover a
+  color: white
+  transition: .3s
+
+.box.navlinks:hover i
+  color: $light-gray
+  background-color: white
+  transition: .3s
+
+$box-shadow: 0 0.5em 1em -0.125em rgb(202 202 202 / 10%), 0 0px 0 1px rgba(10, 10, 10, 0.02)
+
+.is-size-small
+  font-size: .8rem
+
+//footer
+footer
+  color: #939393
 
 // USE BULMA~THIS:
 // @import '~bulma/sass/utilities/_all.sass'

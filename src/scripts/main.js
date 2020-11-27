@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         el.classList.toggle("is-active");
-
+        $target.classList.remove("hideMe");
+        
         if ($target.classList.contains("conditionalClose")) {
           $target.classList.replace("conditionalClose", "conditionalOpen");
           $target.classList.add("is-active");

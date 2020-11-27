@@ -1,10 +1,19 @@
 extends page.pug
 
 block content
-  .columns
-    .column.is-one-fifth.has-background-warning.conditionalClose#nav
-      //navigation here
-      p Hi there, I'm the navigation
-    .column
+  .columns.my-0
+    .column.is-one-quarter.px-0.py-0.navslider.conditionalClose.hideMe#nav
+      //navigation here -- options: cards,
+      each link in links 
+        - let [name, url, spiel, icon] = link
+          .box.navlinks.my-1.mx-2.ml-4(class={'is-active': page === name})
+            a(href=url)
+              .columns
+                .column.is-narrow
+                  i.is-size-3(class=[icon])
+                .column
+                  p.is-size-4 #{name}
+                  p.is-size-small #{spiel}
+    .column.px-0.py-0
       //everything else here
       block page 
