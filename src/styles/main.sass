@@ -1,14 +1,5 @@
 @charset 'utf-8'
 
-// SET 4 PALETTE COLORS LIKE THIS:
-// $palette-light: #EEE
-// $palette-mid: #666
-// $palette-dull: #444
-// $palette-dark: #111
-
-// SET USABLE CUSTOM COLORS LIKE THIS:
-// $custom-colors: ('palette-light': $palette-light, 'palette-mid': $palette-mid, 'palette-dull': $palette-dull, 'palette-dark': $palette-dark)
-
 //bright green
 $primary: #0AF77C
 //dark blue
@@ -17,6 +8,8 @@ $info: #2870d4
 $dark: #404040
 // index background gray
 $light: #E8E8E8
+
+$warning: #82D9FE
 
 $light-gray: #C6C6C6
 //
@@ -27,27 +20,24 @@ $light-gray: #C6C6C6
   bright green: #0AF77C
 
 // IMPORT FONTS LIKE THIS:
-@font-face
-  font-family: 'Montserrat'
-  font-style: normal
-  font-weight: normal
-  src: url('/fonts/Montserrat-Regular.ttf')
 
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,600;0,700;0,800;1,500&display=swap')
 // TELL BULMA TO USE FONTS LIKE THIS (the rest of the list are Bulma's default fonts):
 $family-sans-serif: 'Montserrat', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+
+//ALL STYLING
 
 //NAV/HEADER STYLING
 .name
   margin: auto
 
 .conditionalOpen
-  animation: slideOpen normal forwards ease-out
+  animation: slideOpen normal forwards ease-in-out
   animation-duration: 1s
   overflow: hidden
 
 .conditionalClose
-  animation: slideClosed normal forwards
+  animation: slideClosed normal forwards ease-in-out
   animation-duration: 1s
   overflow: hidden
 
@@ -75,11 +65,17 @@ $family-sans-serif: 'Montserrat', BlinkMacSystemFont, -apple-system, 'Segoe UI',
 
 p.flip-burger::after
   content: "☰"
+  //content: "⬱"
+  color: $light-gray
 
-.is-active p.flip-burger::after
-  content: "✕"
+//.is-active p.flip-burger::after
+  content: "☰"
 
 //each link things
+.box.navlinks
+  margin-left: 1rem
+  margin-right: .2rem
+
 .box.navlinks a
   color: #3B3B3B
 
@@ -89,10 +85,13 @@ p.flip-burger::after
   padding: 15px
   border-radius: 100px
 
+.has-text-gray
+  color: #888888
+
 .box.navlinks.is-active
   background-color: $info
 
-.box.navlinks.is-active a
+.box.navlinks.is-active a, .box.is-active .has-text-gray
   color: white
 
 .box.navlinks.is-active i
@@ -104,7 +103,7 @@ p.flip-burger::after
   background-color: $light-gray
   transition: .3s
 
-.box.navlinks:hover a
+.box.navlinks:hover a, .box:hover .has-text-gray
   color: white
   transition: .3s
 
@@ -114,9 +113,49 @@ p.flip-burger::after
   transition: .3s
 
 $box-shadow: 0 0.5em 1em -0.125em rgb(202 202 202 / 10%), 0 0px 0 1px rgba(10, 10, 10, 0.02)
+$box-radius: 0px
 
 .is-size-small
   font-size: .8rem
+
+// home page styling
+//carousel :-)
+.tweet
+  background-color: #4F4F4F
+  padding: .7rem 1rem
+  margin: 1rem .2rem
+  border-radius: 20px
+
+
+.tweet p
+  color: #E1E1E1
+
+.carousel-container
+  overflow: hidden
+
+.owl-carousel#myCarousel
+  width: 700px
+  margin: auto
+
+.owl-stage
+  display: flex
+  align-items: center
+
+
+
+//.scootch-left
+  transform: translateX(-2500px)
+  transition-duration: 60s
+
+//rest of Home
+.page-container
+  margin: auto
+  padding-left: 5rem
+  padding-right: 5rem
+
+.learnmore-btn
+  width: 200px
+  margin: auto
 
 //footer
 footer
@@ -155,6 +194,3 @@ footer
 
 // AFTER BULMA IS IMPORTED, USE BULMA VARIABLES LIKE THIS:
 @media only screen and (max-width: $tablet)
-  .reverse-order
-    display: flex
-    flex-direction: column-reverse

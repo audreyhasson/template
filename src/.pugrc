@@ -5,10 +5,29 @@
     companyName: "Audrey Hasson",
     links: [
       ["Home", "/", "Let's talk texts", "fas fa-home"],
-      ["Learning", "/learning.pug", "Again, but slower", "fas fa-cubes"],
+      ["Learning", "/learning.pug", "Food for thought", "fas fa-cubes"],
       ["Resources", "/resources.pug", "Educational tools available", "fas fa-book-open"],
       ["About", "/about.pug", "Meet our team", "fas fa-users"],
     ],
-    email: "someone@example.com"
+    tweets: [
+      ["NOBODY with a iphone wanna text someone with an android gotta look at that ugly green bubbles", "@kingdaved", "https://twitter.com/kingdaved/status/1184116601060298758"],
+      ["I hate texting green bubbles.", "@AmazinPriince", "https://twitter.com/AmazinPriince/status/1184315838712688641"],
+      ["hate texting people who don't have iphones lol them green bubbles annoying.", "@bbydollnaoki", "https://twitter.com/bbydollnaoki/status/1184065475245957121"],
+      ["Ever since my friend switched from an iPhone to a S8, I have not texted her. I hate texting green bubbles.", "@thedaynamariee", "https://twitter.com/thedaynamariee/status/860871709192318977"],
+      ["Blue bubbles only.", "@katieleebarlow", "https://twitter.com/katieleebarlow/status/1177609031604682758"],
+      ["I legit ghosted someone because they had the green message bubbles.", "@nnedarb", "https://twitter.com/nnedarb/status/1184518261389451264"],
+      ["If I give u my # and ur text bubbles show up green I’m not texting u back lol", "@honeyjulieee", "https://twitter.com/honeyjulieee/status/1282857588686639104"],
+      ["I’m sorry. I just can’t text green bubbles.", "@cauliflornia", "https://twitter.com/cauliflornia/status/1282872974836563968"],
+      ["Don’t hit me up if you have an android, I refuse to see them green bubbles in my iMessages", "@stayprosper1", "https://twitter.com/stayprosper1/status/1280651827743207425"],
+      ["American Horror Story: you meet someone new and fall in love but their text bubbles are GREEN", "@CasualThursday", "https://twitter.com/CasualThursday/status/1281062195112169473"],
+      ["if you have green bubbles through text don’t text me at all, lmao.", "@josiee_lovee23", "https://twitter.com/josiee_lovee23/status/1207792089620041728"],
+      ["If you have an Android, you should automatically be booted out of any group chat for making the rest of our text bubbles puke green.", "@BridgetPhetasy", "https://twitter.com/BridgetPhetasy/status/1187862928399056896"],
+      ["Exactly! I instantly don’t want to talk to anyone if I find out the message bubbles are green", "@iamwilliamp_", "https://twitter.com/iamwilliamp_/status/1331662298998562832"],
+      ["Personally, I'd rather no one with the green message bubbles text me. Get an iPhone fool", "@ivey3434", "https://twitter.com/ivey3434/status/848868556058107904"],
+      ["If you don't have an iPhone I won't text you. Something about those green message bubbles bug me.", "@jaycealvey", "https://twitter.com/jaycealvey/status/655505342185390080"],
+      ["green message bubbles are disgusting", "@surfboarts", "https://twitter.com/surfboarts/status/417974705136480256"],
+      ["Green message bubbles make me nauseous", "@EatPorkPlease", "https://twitter.com/EatPorkPlease/status/1088490896507760640"],
+      ["Don't be texting me with those green message bubbles", "@Cherry_Gang", "https://twitter.com/Cherry_Gang/status/870759171347537920"]
+    ]
   }
 }

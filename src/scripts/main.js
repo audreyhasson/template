@@ -18,13 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         el.classList.toggle("is-active");
         $target.classList.remove("hideMe");
-        
+
         if ($target.classList.contains("conditionalClose")) {
           $target.classList.replace("conditionalClose", "conditionalOpen");
           $target.classList.add("is-active");
-        } else {
+        } else if ($target.classList.contains("conditionalOpen")) {
           $target.classList.replace("conditionalOpen", "conditionalClose");
           $target.classList.remove("is-active");
+        } else {
+          $target.classList.add("conditionalClose");
         }
       });
     });
@@ -32,4 +34,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-//slide nav open
+//owl carousel instead
