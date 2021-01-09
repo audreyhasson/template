@@ -1,37 +1,73 @@
+//VARIABLES
+let underTablet = window.matchMedia("(max-width: 769px)");
+function responsiveNav(x) {
+  if (x.matches) {
+    let nav = document.getElementById("nav");
+    let margin = "-" + nav.offsetHeight + "px";
+    nav.style.marginTop = margin;
+    nav.classList.add("conditionalClose")
+  }
+}
+
+function openNav(object) {
+  if (underTablet.matches) {
+    let helper = object.offsetHeight;
+    let margin = "-" + helper + "px";
+    var slideDown = new KeyframeEffect(
+      object,
+      [
+        {marginTop: margin},
+        {marginTop: "0px"},
+      ],
+      {duration: 500, fill: 'forwards', ease: 'ease-in-out'}
+    );
+    var navSlideDown = new Animation(slideDown);
+    navSlideDown.play();
+  };
+  object.classList.replace("conditionalClose", "conditionalOpen");
+  object.classList.add("is-active");
+}
+
+function closeNav(object) {
+  if (underTablet.matches) {
+    let helper = object.offsetHeight;
+    let margin = "-" + helper + "px";
+    var slideUp = new KeyframeEffect(
+      object,
+      [
+        {marginTop: "0px"},
+        {marginTop: margin},
+      ],
+      {duration: 500, fill: 'forwards', ease: 'ease-in-out'}
+    );
+    var navSlideUp = new Animation(slideUp);
+    navSlideUp.play();
+  };
+  object.classList.replace("conditionalOpen", "conditionalClose");
+  object.classList.remove("is-active");
+}
+
 // From https://bulma.io/documentation/components/navbar/
 document.addEventListener("DOMContentLoaded", () => {
-
-  // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll("#burger"), 0);
-
-  // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
-
-    // Add a click event on each of them
     $navbarBurgers.forEach( el => {
       el.addEventListener("click", () => {
-
-        // Get the target from the "data-target" attribute
         const target = el.dataset.target;
         const $target = document.getElementById("nav");
-
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         el.classList.toggle("is-active");
         $target.classList.remove("hideMe");
-
         if ($target.classList.contains("conditionalClose")) {
-          $target.classList.replace("conditionalClose", "conditionalOpen");
-          $target.classList.add("is-active");
+          openNav($target);
         } else if ($target.classList.contains("conditionalOpen")) {
-          $target.classList.replace("conditionalOpen", "conditionalClose");
-          $target.classList.remove("is-active");
+          closeNav($target);
         } else {
           $target.classList.add("conditionalClose");
         }
       });
     });
   }
-
 });
 
-//owl carousel instead
+responsiveNav(underTablet);
+underTablet.addListener(responsiveNav);
