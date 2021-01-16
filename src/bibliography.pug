@@ -1,0 +1,12 @@
+extends templates/basicPage.pug
+
+block prepend header
+  - let page = "Works Cited"
+
+block page 
+  .page-container.has-background-light.pb-4
+    p.title.has-text-weight-bold.has-text-dark.py-5.is-size-1.my-0 #{page}
+    .sources
+      ol
+        each source, index in bibliography
+          li.is-size-7.py-2(id=index) #{source}

@@ -2,7 +2,7 @@ extends page.pug
 
 block content
   .columns.my-0
-    .column.is-one-quarter.px-0.py-0.navslider#nav
+    .column.is-one-quarter.px-0.py-0.navslider#nav(class={'conditionalClose': startsClosed})
       each link in links 
         - let [name, url, spiel, icon] = link
           .box.navlinks.mb-1(class={'is-active': page === name})

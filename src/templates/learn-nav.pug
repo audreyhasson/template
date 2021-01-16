@@ -1,0 +1,17 @@
+extends basicPage.pug
+
+block prepend header
+  - let page = "Learning";
+  - let startsClosed = false;
+
+block page 
+  .page-container.has-background-light.mx-0
+    .l-links-container.pt-3.desktop-only
+      each point in thesis
+        - let [chicken, url] = point
+        - let path = "/learning" + url
+        .link(class={'is-current-point': chicken === header})
+          a.thesis-links(href=path) #{chicken}
+    //navigationy stuff here 
+    block thesis
+    

@@ -165,12 +165,6 @@ $box-radius: 0px
   display: flex
   align-items: center
 
-
-
-//.scootch-left
-  transform: translateX(-2500px)
-  transition-duration: 60s
-
 //rest of Home
 .page-container
   margin: auto
@@ -184,6 +178,40 @@ $box-radius: 0px
 //footer
 footer
   color: #939393
+
+// LEARNING page
+// mini nav
+.l-links-container
+  display: flex
+  align-items: stretch
+
+.l-links-container .link
+  background-color: #D2d2d2
+  padding: .4rem 1rem
+  border-radius: .5rem
+  font-weight: bold
+  font-size: 18px
+  margin: 0 .5rem
+  flex: 1
+  text-align: center
+
+.l-links-container a
+  color: white
+  font-weight: bold
+  font-size: 18px
+
+.l-links-container .link:hover, .l-links-container a:hover
+  background-color: $light-gray
+  color: white
+
+.l-links-container .link.is-current-point, .is-current-point a:hover
+  background-color: $primary
+
+// bibliography
+.sources
+  width: 80%
+  overflow-wrap: break-word
+
 
 // USE BULMA~THIS:
 // @import '~bulma/sass/utilities/_all.sass'
@@ -218,6 +246,8 @@ footer
 
 // AFTER BULMA IS IMPORTED, USE BULMA VARIABLES LIKE THIS:
 @media only screen and (max-width: 400px)
+  .desktop-only
+    display: none
   .column.is-1.burger-container
     padding-left: 0
   .is-size-3.pt-3.pl-4.flip-burger.has-text-centered
@@ -233,6 +263,8 @@ footer
     font-size: 15px
 
 @media only screen and (max-width: $tablet)
+  .desktop-only
+    display: none
   // navigation
   .conditionalOpen
     animation: none
@@ -256,6 +288,8 @@ footer
     border-radius: 100px
 
 @media only screen and (min-width: $tablet)
+  .desktop-only
+    display: none
   .conditionalOpen
     animation: slideOpen normal forwards ease-in-out
     animation-duration: 1s
@@ -271,3 +305,7 @@ footer
     background-color: $info
   .box.navlinks.is-active a, .box.is-active .has-text-gray
     color: white
+
+  @media only screen and (min-width: $desktop)
+    .desktop-only
+      display: flex
