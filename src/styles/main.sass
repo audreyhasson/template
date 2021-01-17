@@ -32,9 +32,9 @@ body, html
 .columns.my-0
   margin: 0
 
-//.webcontainer
-  position: static
-  width: auto
+.webcontainer
+  display: table
+  margin: 0
 
 //NAV/HEADER STYLING
 .name
@@ -207,10 +207,70 @@ footer
 .l-links-container .link.is-current-point, .is-current-point a:hover
   background-color: $primary
 
+img.right-image
+  float: right
+  width: 50%
+
+.column.next-button
+  align-self: flex-end
+
+.next-button a
+  float: right
+  background-color: $primary
+  color: white
+  padding: .4rem 1rem
+  border-radius: .5rem
+  font-weight: bold
+  font-size: 18px
+  text-align: center
+
+.next-button a:hover
+  color: white
+
+.column.prev-button
+  align-self: flex-start
+
+.prev-button a
+  float: left
+  background-color: $primary
+  color: white
+  padding: .4rem 1rem
+  border-radius: .5rem
+  font-weight: bold
+  font-size: 18px
+  text-align: center
+
+.prev-button a:hover
+  color: white
+
+
+.response ol
+  list-style-position: inside
+
+.column .rectangle
+  background-color: #f4f4f4
+  border: solid 3px #DDD
+
+.rectangle
+  padding: 1rem
+
+.rectangle p, .rectangle li
+  font-size: 14px
+  padding-top: .6rem
+
+.video
+  float: right
+  width: 45%
+  border-radius: 10px
+
+.video:focus
+  outline: 0
+
 // bibliography
 .sources
-  width: 80%
+  width: 70%
   overflow-wrap: break-word
+
 
 
 // USE BULMA~THIS:

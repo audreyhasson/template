@@ -1,11 +1,33 @@
-//VARIABLES
+
+
+// remember nav state on learn page
+function checkNav(bigNav) {
+  if (bigNav.classList.contains("conditionalOpen")) {
+    sessionStorage.setItem('navState', 'open');
+  } else if (bigNav.classList.contains("conditionalClose")) {
+    sessionStorage.setItem('navState', 'closed');
+  };
+  console.log(sessionStorage.getItem('navState'));
+}
+
+let innerNav = document.getElementsByClassName("thesis-links");
+console.log(innerNav);
+
+
+function rememberNav() {
+  let bigState = sessionStorage.getItem('navState');
+  let bigNav = document.getElementById("nav");
+  if (bigState === 'open') {
+    bigNav.classList.add("conditionalClose", "hideMe");
+  }
+}
+
+//responsiveness
 let underTablet = window.matchMedia("(max-width: 769px)");
 function responsiveNav(x) {
   if (x.matches) {
     let nav = document.getElementById("nav");
-    let margin = "-" + nav.offsetHeight + "px";
-    nav.style.marginTop = margin;
-    nav.classList.add("conditionalClose")
+    nav.classList.add("conditionalClose", "hideMe");
   }
 }
 
@@ -56,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = el.dataset.target;
         const $target = document.getElementById("nav");
         el.classList.toggle("is-active");
+        checkNav($target);
         $target.classList.remove("hideMe");
         if ($target.classList.contains("conditionalClose")) {
           openNav($target);
@@ -69,5 +92,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-responsiveNav(underTablet);
-underTablet.addListener(responsiveNav);
+document.addEventListener("DOMContentLoaded", () => {
+  responsiveNav(underTablet);
+  rememberNav();
+});
+
+let backBtn = document.getElementsByClassName("getUrl");
+let lastPage = document.referrer;
+function bibliography() {
+  Array.prototype.forEach.call(backBtn, i => {
+    i.setAttribute("href", lastPage);
+  })
+};
+
+
+
+bibliography();
