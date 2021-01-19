@@ -6,10 +6,10 @@ block prepend header
 block page 
   .page-container.has-background-light.pb-4
     p.title.has-text-weight-bold.has-text-dark.py-5.is-size-1.my-0 #{page}
-    .sources
-      ol
+    .sources 
+      ol.is-size-7
         each source, index in bibliography
-          li.is-size-7
+          li
             .py-2(id=index) #{source} 
               a.getUrl Back
-    
+  

@@ -28,6 +28,18 @@ $family-sans-serif: 'Montserrat', BlinkMacSystemFont, -apple-system, 'Segoe UI',
 //ALL STYLING
 body, html
   margin: 0
+  height: 100%
+
+body
+  display: flex
+  flex-direction: column
+
+.content
+  flex: 1 0 auto
+  background-color: $light
+
+.footer
+  flex-shrink: 0
 
 .columns.my-0
   margin: 0
@@ -136,11 +148,14 @@ i.flip-burger
   background-color: white
   transition: .3s
 
-$box-shadow: 0 0.5em 1em -0.125em rgb(202 202 202 / 10%), 0 0px 0 1px rgba(10, 10, 10, 0.02)
+$box-shadow: 0 0.5em 1em -0.125em rgb(131 131 131 / 10%), 0 0px 0 1px rgba(10, 10, 10, 0.02)
 $box-radius: 0px
 
 .is-size-small
   font-size: .8rem
+
+.box.navlinks .column  p
+  margin-bottom: 0
 
 // home page styling
 //carousel :-)
@@ -270,11 +285,30 @@ img.right-image
   list-style-type: circle
   list-style-position: inside
 
-// bibliography
-.sources
-  width: 70%
-  overflow-wrap: break-word
+// resources
+.resource-buttons, .resource-buttons a
+  display: table
 
+.resource-buttons a
+  color: white
+  background-color: $info
+  padding: 1rem
+  border-radius: 10px
+  font-size: 18px
+  text-align: center
+  margin: 1rem 0
+
+.resource-buttons a:hover
+  color: white
+  background-color: #b8b8b8
+  transition: .3s
+
+a.green:hover
+  background-color: $primary
+
+// bibliography
+.sources ol li
+  word-break: break-word
 
 
 // USE BULMA~THIS:
@@ -307,26 +341,50 @@ img.right-image
 // USE BULMA AS A WHOLE LIKE THIS (before production, switch to modular to reduce size)
 @import '~bulma/bulma.sass'
 
+//breakpoints
+$very-tiny: 199px
+$small: 200px
+$small-max: 399px
+$medium: 400px
+$medium-max: 768px
+$tab: 769px
+$tab-max: 1139px
+$desk: 1140px
+$desk-max: 1279px
+$large: 1280px
+$large-max: 1599px
+$xl: 1600px
 
 // AFTER BULMA IS IMPORTED, USE BULMA VARIABLES LIKE THIS:
-@media only screen and (max-width: 400px)
-  .desktop-only
-    display: none
-  .column.is-1.burger-container
-    padding-left: 0
+@media only screen and (max-width: $very-tiny)
+@media only screen and (min-width: $small)
+@media only screen and (max-width: $small-max)
+  .column.is-1.burger-container.is-flex.is-align-content-center
+    width: 20%
+    float: left
+  .name
+    margin-left: 0
+  //babyer carousel
+  .owl-carousel#myCarousel
+    width: 100px
+    margin: auto
+@media only screen and (min-width: $medium)
+  .name
+    text-align: center
+@media only screen and (max-width: $medium-max)
   .is-size-3.pt-3.pl-4.flip-burger.has-text-centered
     padding-top: 0
   .column.is-6.is-offset-2.is-centered.cond-pat
+    width: 80%
     margin: 0
-    width: 70%
-    padding: 0 0 0 2rem
+    padding: 0 0 0
+  a.py-3.is-flex.is-flex-wrap-nowrap.is-justify-content-center
+    padding-left: 0
   i.flip-burger
     color: $light-gray
     padding-top: .5rem
-    padding-left: .5rem
+    padding-left: 0
     font-size: 15px
-
-@media only screen and (max-width: $tablet)
   .desktop-only
     display: none
   // navigation
@@ -350,8 +408,11 @@ img.right-image
     background-color: $light-gray
     padding: 15px
     border-radius: 100px
-
-@media only screen and (min-width: $tablet)
+  //baby carousel
+  .owl-carousel#myCarousel
+    width: 400px
+    margin: auto
+@media only screen and (min-width: $tab)
   .desktop-only
     display: none
   .conditionalOpen
@@ -370,6 +431,12 @@ img.right-image
   .box.navlinks.is-active a, .box.is-active .has-text-gray
     color: white
 
-  @media only screen and (min-width: $desktop)
+  @media only screen and (min-width: $desk)
     .desktop-only
       display: flex
+@media only screen and (max-width: $tab-max)
+@media only screen and (min-width: $desk)
+@media only screen and (max-width: $desk-max)
+@media only screen and (min-width: $large)
+@media only screen and (max-width: $large-max)
+@media only screen and (min-width: $xl)

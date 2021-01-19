@@ -8,13 +8,14 @@ $(document).ready(function(){
     items: 3,
     autoplay: true,
     autoplayTimeout: 3500,
+    lazyLoad: true,
     responsiveClass: true,
     responsive : {
       0:{
         items: 1
       },
-      768:{
-        items: 2,
+      769:{
+        items: 3,
       },
       1023:{
         items: 3,

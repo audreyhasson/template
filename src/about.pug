@@ -4,5 +4,11 @@ block prepend header
   - const page = "About";
 
 block page
-  section.section
-    .container
+  .page-container.has-background-light.pb-6
+    p.title.has-text-weight-bold.has-text-dark.py-5.is-size-1.my-0 #{page}
+    p Audrey Hasson is in the class of 2022 at Centennial High School, and completed this research during her sophomore year. Outside of research, she pretends to be Elle Woods on her Mock Trial team and plays french horn and soccer. Audrey listens to showtunes, likes to read, and is a proud owner of a Google Pixel.
+    img.right-image.px-4.py-2(src="images/about.svg")
+    p.has-text-weight-bold.has-text-dark.pb-3.is-size-3.my-0 Thank You
+    p I had constant support in my research and in the production of this site, and there are about a million people I should thank. Highlights: Ashley Wang and Ben DiMarco, my incredible web designers; Dr. Kipling Williams, for agreeing to meet with me; Ellie Munoz, my favorite fan; and Julia Bakhru, the best teacher I’ve ever had. An honorable mention goes to those unlucky 18 people who were dragged to a “social experiment” that failed miserably. Thank you all!
+    p.has-text-weight-bold.has-text-dark.pb-3.is-size-3.my-0 Credits
+    p The beautiful design of this site is the brainchild of Ben DiMarco, and the wonderful animated video was created by Austine Zhang. All content, if not cited #[a(href="bibliography.pug") here], is the intellectual property of Audrey Hasson.
