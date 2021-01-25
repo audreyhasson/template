@@ -7,12 +7,12 @@ block content
         - let [name, url, spiel, icon] = link
           .box.navlinks.mb-1(class={'is-active': page === name})
             a(href=url)
-              .columns.is-mobile
-                .column.is-narrow
-                  i.is-size-3.is-size-4-mobile(class=[icon])
-                .column
-                  p.is-size-4 #{name}
-                  p.is-size-small.has-text-gray #{spiel}
+              .columns.is-mobile.each-link 
+                .column.is-narrow.align-on-mobile
+                  i.is-size-3.is-size-5-mobile(class=[icon])
+                .column.align-on-mobile
+                  p.is-size-4.is-size-5-mobile #{name}
+                  p.is-size-small.has-text-gray.spiel #{spiel}
     .column.px-0.py-0.webcontainer.has-background-light
       //everything else here
       block page 
