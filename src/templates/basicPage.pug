@@ -8,9 +8,9 @@ block content
           .box.navlinks.mb-1(class={'is-active': page === name})
             a(href=url)
               .columns.is-mobile.each-link 
-                .column.is-narrow.align-on-mobile
+                .column.is-narrow.desktop-only
                   i.is-size-3.is-size-5-mobile(class=[icon])
-                .column.align-on-mobile
+                .column.nav-text
                   p.is-size-4.is-size-5-mobile #{name}
                   p.is-size-small.has-text-gray.spiel #{spiel}
     .column.px-0.py-0.webcontainer.has-background-light
