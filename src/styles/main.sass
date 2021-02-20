@@ -310,6 +310,52 @@ a.green:hover
 .sources ol li
   word-break: break-word
 
+//quiz / react section
+.start
+  width: 40%
+  margin: auto
+  padding: 3rem 0
+
+.show
+  animation: fadeIn normal forwards ease-in-out
+  animation-duration: .5s
+  display: block
+.hide
+  display: none
+
+.quiz-element
+  cursor: pointer
+
+.question
+  padding: .5rem 5rem
+
+.answers
+  list-style-type: square
+  padding: 1rem 5rem
+
+.answers li
+  padding: .5rem 0
+
+.results-title
+  padding: 2rem 5rem
+  font-weight: bold
+
+.results-spiel
+  padding: 1rem 5rem
+  text-align: center
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes fadeOut
+  from
+    opacity: 1
+  to
+    opacity: 0
+
 
 // USE BULMA~THIS:
 // @import '~bulma/sass/utilities/_all.sass'

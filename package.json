@@ -3,9 +3,20 @@
   "version": "1.0.0",
   "description": "A simple Pug/SCSS boilerplate for WebPoint.",
   "dependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
     "bulma": "^0.9.1",
     "bulma-carousel": "^4.0.4",
-    "jquery": "^3.5.1"
+    "css-loader": "^5.0.2",
+    "file-loader": "^6.2.0",
+    "jquery": "^3.5.1",
+    "parcel-plugin-clean-dist": "0.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "style-loader": "^2.0.0"
   },
   "scripts": {
     "build": "parcel build src/index.pug -d dist --no-source-maps",
@@ -25,9 +36,15 @@
   "devDependencies": {
     "del-cli": "^3.0.1",
     "eslint": "^7.4.0",
+    "html-webpack-plugin": "^5.1.0",
+    "parcel-bundler": "^1.12.4",
+    "path": "^0.12.7",
     "pug": "^2.0.4",
     "pug-lint": "^2.6.0",
     "sass": "^1.26.10",
-    "parcel-bundler": "^1.12.4"
-  }
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  },
+  "main": "index.js",
+  "keywords": []
 }

@@ -7,11 +7,9 @@ function checkNav(bigNav) {
   } else if (bigNav.classList.contains("conditionalClose")) {
     sessionStorage.setItem('navState', 'closed');
   };
-  console.log(sessionStorage.getItem('navState'));
 }
 
 let innerNav = document.getElementsByClassName("thesis-links");
-console.log(innerNav);
 
 
 function rememberNav() {
