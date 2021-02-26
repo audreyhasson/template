@@ -134,6 +134,8 @@ class Quiz extends React.Component {
     })
   }
   handleChange(choice) {
+    const theirPick = event.target;
+    console.log("You have selected" + theirPick);
     if (this.state.progress === 9) {
       if (choice != null) {
         if (choice[1]) {
@@ -156,6 +158,7 @@ class Quiz extends React.Component {
           })
         }
       }
+      //below is what needs to be delayed in order for styling changes to be visible
       this.setState((state) => {
         const newProg = state.progress + 1
         const newQuestion = quizContent[quizOrder[newProg]];
