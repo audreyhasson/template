@@ -320,6 +320,7 @@ a.green:hover
   animation: fadeIn normal forwards ease-in-out
   animation-duration: .5s
   display: block
+
 .hide
   display: none
 
@@ -330,11 +331,22 @@ a.green:hover
   padding: .5rem 5rem
 
 .answers
-  list-style-type: square
+  list-style-type: none
   padding: 1rem 5rem
 
 .answers li
-  padding: .5rem 0
+  border: $dark solid
+  border-width: .3rem
+  padding: 1rem
+  margin: 2%
+  width: 46%
+  display: inline-table
+
+.correct-answer
+  background-color: $primary
+
+.wrong-answer
+  background-color: #ff4a4a
 
 .results-title
   padding: 2rem 5rem
@@ -343,6 +355,21 @@ a.green:hover
 .results-spiel
   padding: 1rem 5rem
   text-align: center
+
+.results-spiel p
+  margin-bottom: 0
+
+.retry-button
+  padding: 1rem
+  margin-top: 1rem
+  font-size: 24px
+  display: inline-block
+
+.timer-c
+  border: solid white 3px
+  width: 4rem
+  text-align: center
+  height: 4rem
 
 @keyframes fadeIn
   from

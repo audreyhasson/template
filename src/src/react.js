@@ -3,6 +3,9 @@ import React from 'react'
 import {render} from 'react-dom'
 
 const ten = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let move = false;
+const timeTotal = 8000;
+const wait = 350;
 
 function disorder(arg) {
   for (var i = 0; i < arg.length; i++) {
@@ -19,9 +22,9 @@ function disorder(arg) {
 const quizOrder = disorder(ten);
 console.log(quizOrder);
 const quizContent = [
-  ["Texts from iPhone users are _____ to read as texts from Android users.", [
-    ["Twice as hard", false],
-    ["Twice as easy", true],
+  ["Texts from Android users are _____ to read as texts from iPhone users.", [
+    ["Twice as hard", true],
+    ["Twice as easy", false],
     ["The same", false],
     ["Three times as hard", false],
   ]],
@@ -121,8 +124,11 @@ class Quiz extends React.Component {
       question: [],
       right: 0,
       stop: false,
+      timeLeft: timeTotal,
+      timeStarted: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.countDown = this.countDown.bind(this);
   }
   componentDidMount() {
     this.setState((state) =>{
@@ -131,7 +137,39 @@ class Quiz extends React.Component {
       return {
         question,
       }
-    })
+    });
+  }
+  componentDidUpdate() {
+    if (this.state.timeLeft <= 0 && !this.state.stop) {
+      if (this.state.progress === 9) {
+        this.setState((state) => {
+          return {stop: true}
+      })} else if (this.state.progress < 9) {
+        console.log("moving along, we don't have all day");
+        this.setState((state) => {
+          const newProg = state.progress + 1
+          const newQuestion = quizContent[quizOrder[newProg]];
+          console.log(newQuestion);
+          return {
+            progress: newProg,
+            question: newQuestion,
+            timeLeft: timeTotal,
+          }
+          })
+        }
+      } else if (this.props.data === "show" && this.state.timeLeft > 0 && !this.state.timeStarted) {
+      //excute -1 function every second
+      setInterval(this.countDown, 1000);
+      this.setState((state) => {
+        return{timeStarted: true}
+      })
+    }
+  }
+  countDown(){
+    this.setState((state) => {
+      return {timeLeft: state.timeLeft - 1000}
+    });
+    console.log(this.state.timeLeft);
   }
   handleChange(choice) {
     const theirPick = event.target;
@@ -140,12 +178,17 @@ class Quiz extends React.Component {
       if (choice != null) {
         if (choice[1]) {
           console.log("Correct");
-          this.setState((state) => {
-            return {right: state.right +1}
-          })
+          theirPick.classList.add("correct-answer");
+          setTimeout(() => {
+            this.setState((state) => {
+              return {right: state.right +1}
+            });
+          }, wait);
+
         }
       }
       console.log("All done!");
+      //this needs to be delayed as well
       this.setState((state) => {
         return {stop: true}
       })
@@ -153,33 +196,46 @@ class Quiz extends React.Component {
       if (choice != null) {
         if (choice[1]) {
           console.log("Correct");
+          theirPick.classList.add("correct-answer");
           this.setState((state) => {
             return {right: state.right +1}
           })
+        } else if (!choice[1]){
+          theirPick.classList.add("wrong-answer");
         }
       }
       //below is what needs to be delayed in order for styling changes to be visible
-      this.setState((state) => {
-        const newProg = state.progress + 1
-        const newQuestion = quizContent[quizOrder[newProg]];
-        console.log(newQuestion);
-        return {
-          progress: newProg,
-          question: newQuestion,
-        }
-      })
+      setTimeout(() => {
+        theirPick.classList.remove("correct-answer", "wrong-answer");
+        this.setState((state) => {
+          const newProg = state.progress + 1
+          const newQuestion = quizContent[quizOrder[newProg]];
+          console.log(newQuestion);
+          return {
+            progress: newProg,
+            question: newQuestion,
+            timeLeft: timeTotal,
+          }
+        });
+      }, wait)
     }
 
   }
   render() {
     console.log("Your current score ", this.state.right*10,  "%");
     console.log("your progress uis ", this.state.progress);
+    const time = this.state.timeLeft/1000;
     if (this.props.data === "show") {
       return (
         <div>
           <div className={["slide", this.state.stop ? "hide" : "show"].join(' ')}>
-            <div className="has-background-dark has-text-white question is-size-4">
-              <p>{this.state.question[0]}</p>
+            <div className="has-background-dark has-text-white question is-size-4 columns mx-0">
+              <div className="column">
+                <p>{this.state.question[0]}</p>
+              </div>
+              <div className="column is-narrow timer-c">
+                <p className="timer-text">{time}</p>
+              </div>
             </div>
             <div className="answers quiz-element">
               {this.state.question[1].map((answer, index) => (
@@ -199,48 +255,25 @@ class Quiz extends React.Component {
 class Results extends React.Component {
   constructor(props) {
     super(props);
-    //this.calculateScore = this.calculateScore.bind(this);
   }
   render() {
     if (this.props.data.stop) {
       let correct = this.props.data.right;
       let percent = correct*10;
-      let goodJob = "Wow, you learn fast! we're very proud of you. Now that you're a cyberostracism expert, go teach everyone you know all about it!";
+      let goodJob = "Wow, you learn fast! We're very proud of you. Now that you're a cyberostracism expert, go teach everyone you know all about it!";
       let niceTry = "Well, that went OK. A for effort (even though you didn't actually get an A). Try again?";
       let yikes = "Wow. That was pretty bad. Did you read anything on the site? No? Hm. Try again.";
-      if (percent>=80) {return (
-        <div>
-          <div className="has-background-dark has-text-white results-title has-text-centered is-size-1">
-            <p> Results: {percent}% </p>
-          </div>
-          <div className="results-spiel">
-            <p>{goodJob}</p>
-          </div>
-        </div>
-      )
-    } else if (80>percent && percent>=60) {
       return (
         <div>
           <div className="has-background-dark has-text-white results-title has-text-centered is-size-1">
             <p> Results: {percent}% </p>
           </div>
           <div className="results-spiel">
-            <p>{niceTry}</p>
+            <p>{correct>= 8 ? goodJob : correct < 8 && correct > 5 ? niceTry : yikes}</p>
+            <a href="javascript:window.location.href=window.location.href" className="retry-button has-text-white has-background-dark">TRY AGAIN</a>
           </div>
         </div>
       )
-    } else if (60>percent) {
-      return (
-        <div>
-          <div className="has-background-dark has-text-white results-title has-text-centered is-size-1">
-            <p> Results: {percent}% </p>
-          </div>
-          <div className="results-spiel">
-            <p>{yikes}</p>
-          </div>
-        </div>
-      )
-    }
     } else {
       return (
         null
