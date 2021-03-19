@@ -4,8 +4,8 @@ import {render} from 'react-dom'
 
 const ten = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let move = false;
-const timeTotal = 8000;
-const wait = 350;
+const timeTotal = 15000;
+const wait = 1000;
 
 function disorder(arg) {
   for (var i = 0; i < arg.length; i++) {
@@ -20,7 +20,6 @@ function disorder(arg) {
 }
 
 const quizOrder = disorder(ten);
-console.log(quizOrder);
 const quizContent = [
   ["Texts from Android users are _____ to read as texts from iPhone users.", [
     ["Twice as hard", true],
@@ -129,11 +128,11 @@ class Quiz extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.countDown = this.countDown.bind(this);
+    this.handleColors = this.handleColors.bind(this);
   }
   componentDidMount() {
     this.setState((state) =>{
       let question = quizContent[quizOrder[this.state.progress]];
-      console.log(question);
       return {
         question,
       }
@@ -145,11 +144,9 @@ class Quiz extends React.Component {
         this.setState((state) => {
           return {stop: true}
       })} else if (this.state.progress < 9) {
-        console.log("moving along, we don't have all day");
         this.setState((state) => {
           const newProg = state.progress + 1
           const newQuestion = quizContent[quizOrder[newProg]];
-          console.log(newQuestion);
           return {
             progress: newProg,
             question: newQuestion,
@@ -169,48 +166,39 @@ class Quiz extends React.Component {
     this.setState((state) => {
       return {timeLeft: state.timeLeft - 1000}
     });
-    console.log(this.state.timeLeft);
   }
   handleChange(choice) {
     const theirPick = event.target;
-    console.log("You have selected" + theirPick);
     if (this.state.progress === 9) {
       if (choice != null) {
         if (choice[1]) {
-          console.log("Correct");
-          theirPick.classList.add("correct-answer");
           setTimeout(() => {
             this.setState((state) => {
               return {right: state.right +1}
             });
           }, wait);
-
         }
       }
-      console.log("All done!");
       //this needs to be delayed as well
-      this.setState((state) => {
-        return {stop: true}
-      })
+      setTimeout(() => {
+        this.setState((state) => {
+          return {stop: true}
+        })
+      }, wait);
     } else {
       if (choice != null) {
         if (choice[1]) {
-          console.log("Correct");
-          theirPick.classList.add("correct-answer");
           this.setState((state) => {
             return {right: state.right +1}
           })
         } else if (!choice[1]){
-          theirPick.classList.add("wrong-answer");
         }
       }
       //below is what needs to be delayed in order for styling changes to be visible
       setTimeout(() => {
-        theirPick.classList.remove("correct-answer", "wrong-answer");
         this.setState((state) => {
           const newProg = state.progress + 1
           const newQuestion = quizContent[quizOrder[newProg]];
-          console.log(newQuestion);
           return {
             progress: newProg,
             question: newQuestion,
@@ -221,9 +209,25 @@ class Quiz extends React.Component {
     }
 
   }
+  handleColors() {
+    let response = event.target;
+    console.log(response.tagName);
+    let fullList = response.parentElement;
+    let wrongOnes = fullList.getElementsByClassName("n");
+    let correctAnswer = fullList.getElementsByClassName("v");
+    if (response.tagName === "LI") {
+      correctAnswer.item(0).classList.add("correct-answer");
+    }
+    if (!response.classList.contains("v") && response.tagName === "LI") {
+      response.classList.add("wrong-answer");
+    }
+    setTimeout(() => {
+      response.classList.remove("wrong-answer");
+      correctAnswer.item(0).classList.remove("correct-answer");
+    }, wait)
+
+  }
   render() {
-    console.log("Your current score ", this.state.right*10,  "%");
-    console.log("your progress uis ", this.state.progress);
     const time = this.state.timeLeft/1000;
     if (this.props.data === "show") {
       return (
@@ -237,9 +241,9 @@ class Quiz extends React.Component {
                 <p className="timer-text">{time}</p>
               </div>
             </div>
-            <div className="answers quiz-element">
+            <div className="answers quiz-element" onClick={() => this.handleColors()}>
               {this.state.question[1].map((answer, index) => (
-                <li key={index} onClick={() => this.handleChange(answer)}>{answer}</li>
+                <li key={index} className={answer[1]? "v" : "n"} onClick={() => this.handleChange(answer)}>{answer}</li>
               ))}
             </div>
           </div>
