@@ -211,7 +211,6 @@ class Quiz extends React.Component {
   }
   handleColors() {
     let response = event.target;
-    console.log(response.tagName);
     let fullList = response.parentElement;
     let wrongOnes = fullList.getElementsByClassName("n");
     let correctAnswer = fullList.getElementsByClassName("v");
