@@ -7,9 +7,7 @@
       ["Home", "/", "Let's talk texts", "fas fa-home"],
       ["Learning", "/learning/index.pug", "Food for thought", "fas fa-cubes"],
       ["Resources", "/resources.pug", "Educational tools available", "fas fa-book-open"],
-      ["Works Cited", "/bibliography.pug", "Additional sources", "fas fa-list-ol"],
       ["About", "/about.pug", "Meet the author", "fas fa-users"],
-      ["Quiz", "/quiz.pug"]
     ],
     tweets: [
       ["NOBODY with a iphone wanna text someone with an android gotta look at that ugly green bubbles", "@kingdaved", "https://twitter.com/kingdaved/status/1184116601060298758"],

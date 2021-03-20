@@ -107,7 +107,7 @@ class Display extends React.Component {
     return (
       <div>
         <div className={[this.state.startPage, "start", "has-background-dark", "quiz-element"].join(' ')} onClick={this.handleStartClick}>
-          <p className="has-text-white has-text-centered is-size-1">START QUIZ!</p>
+          <p className="has-text-white has-text-centered">START QUIZ!</p>
         </div>
         <Quiz data={this.state.question}/>
       </div>
@@ -233,11 +233,11 @@ class Quiz extends React.Component {
       return (
         <div>
           <div className={["slide", this.state.stop ? "hide" : "show"].join(' ')}>
-            <div className="has-background-dark has-text-white question is-size-4 columns mx-0">
+            <div className="has-background-dark has-text-white question columns is-mobile is-align-items-center mx-0">
               <div className="column">
                 <p>{this.state.question[0]}</p>
               </div>
-              <div className="column is-narrow timer-c">
+              <div className="column is-narrow timer-c is-mobile">
                 <p className="timer-text">{time}</p>
               </div>
             </div>

@@ -5,14 +5,14 @@ $(document).ready(function(){
     nav: false,
     dots: false,
     center: true,
-    items: 3,
+    //items: 3,
     autoplay: true,
     autoplayTimeout: 3500,
     lazyLoad: true,
     responsiveClass: true,
     responsive : {
       0:{
-        items: 1
+        items: 1,
       },
       769:{
         items: 3,

@@ -277,6 +277,7 @@ img.right-image, .right-image
   float: right
   width: 45%
   border-radius: 10px
+  margin: .75rem 1rem
 
 .video:focus
   outline: 0
@@ -311,10 +312,14 @@ a.green:hover
   word-break: break-word
 
 //quiz / react section
+.quiz-page
+  padding-top: 3rem
+
 .start
   width: 40%
   margin: auto
-  padding: 3rem 0
+  padding: 3rem 1rem
+  font-size: 3rem
 
 .show
   animation: fadeIn normal forwards ease-in-out
@@ -329,6 +334,7 @@ a.green:hover
 
 .question
   padding: .5rem 5rem
+  font-size: 1.5rem
 
 .answers
   list-style-type: none
@@ -364,6 +370,8 @@ a.green:hover
   width: 4rem
   text-align: center
   height: 4rem
+  display: flex
+  align-items: center
 
 .correct-answer
   background-color: $primary
@@ -433,7 +441,9 @@ a.green:hover
 $very-tiny: 199px
 $small: 200px
 $small-max: 399px
-$medium: 400px
+$between: 400px
+$between-max: 599px
+$medium: 600px
 $medium-max: 768px
 $tab: 769px
 $tab-max: 1139px
@@ -446,6 +456,7 @@ $xl: 1600px
 // AFTER BULMA IS IMPORTED, USE BULMA VARIABLES LIKE THIS:
 @media only screen and (max-width: $very-tiny)
 @media only screen and (min-width: $small)
+
 @media only screen and (max-width: $small-max)
   .column.is-1.burger-container.is-flex.is-align-content-center
     width: 20%
@@ -453,10 +464,28 @@ $xl: 1600px
   .name
     margin-left: 0
   //babyer carousel
-  .owl-carousel#myCarousel
-    width: 100px
+  .small.owl-carousel#myCarousel
+    width: 250px
     margin: auto
-
+  //quiz
+  .answers
+    padding: 1rem 2rem
+  .question
+    font-size: 1rem
+  .timer-c
+    font-size: 1.5rem
+@media only screen and (min-width: $between)
+  .question
+    font-size: 1.25rem
+  .answers
+    padding: 1rem 4rem
+@media only screen and (max-width: $between-max)
+  .right-image, img.right-image, .video
+    float: none
+    width: 90%
+    margin: .75rem auto
+    display: flex
+    justify-content: center
 @media only screen and (min-width: $medium)
   .name
     text-align: center
@@ -475,6 +504,8 @@ $xl: 1600px
     padding-left: 0
     font-size: 15px
   .desktop-only
+    display: none
+  .not-mobile
     display: none
   // navigation
   .conditionalOpen
@@ -508,6 +539,24 @@ $xl: 1600px
     margin: auto
   .page-container
     padding: 0 2rem
+  //quiz
+  .start
+    width: 60%
+    margin: auto
+    padding: 1rem 1rem
+  .answers li
+    border: $dark solid
+    border-width: .3rem
+    padding: 1rem
+    margin: .2rem auto
+    width: 100%
+    display: inline-table
+  .question
+    padding: .5rem 1rem
+  .resource-buttons, .resource-buttons a
+    margin: 1rem auto
+
+
 @media only screen and (min-width: $tab)
   .spiel
     display: auto

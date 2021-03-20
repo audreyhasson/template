@@ -5,7 +5,7 @@ block prepend header
 
 block page
   .has-background-dark.carousel-container
-    .owl-carousel#myCarousel
+    .small.owl-carousel#myCarousel
       each tweet in tweets
         - let [text, handle, source] = tweet;
         .tweet
