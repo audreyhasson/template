@@ -57,15 +57,7 @@ body
   background-color: #fff
   margin: 0
 
-.conditionalOpen
-  animation: slideOpen normal forwards ease-in-out
-  animation-duration: 1s
-  overflow: hidden
-
-.conditionalClose
-  animation: slideClosed normal forwards ease-in-out
-  animation-duration: 1s
-  overflow: hidden
+//open and closing animations in responsive styling section
 
 .column.navslider.conditionalClose.hideMe
   display: none
@@ -186,9 +178,25 @@ $box-radius: 0px
   padding-left: 5rem
   padding-right: 5rem
 
-.learnmore-btn
+.content .bubble-c .learnmore-btn
+  color: white
+  background-color: $primary
+  text-align: center
+  padding: .5rem 1rem
+  font-weight: bold
+  font-size: 1.5rem
+  border-radius: .7rem
+  margin-bottom: 0
+
+.bubble-c
   width: 200px
   margin: auto
+  display: block
+
+.triangle
+  width: 40px
+  margin: 0 130px
+
 
 //footer
 footer
@@ -412,34 +420,33 @@ a.green:hover
 
 
 // USE BULMA~THIS:
-// @import '~bulma/sass/utilities/_all.sass'
+@import '~bulma/sass/utilities/_all.sass'
 
-// @import '~bulma/sass/base/_all.sass'
+@import '~bulma/sass/base/_all.sass'
 
-// @import '~bulma/sass/elements/box.sass'
-// @import '~bulma/sass/elements/button.sass'
-// @import '~bulma/sass/elements/container.sass'
-// @import '~bulma/sass/elements/content.sass'
-// @import '~bulma/sass/elements/icon.sass'
-// @import '~bulma/sass/elements/image.sass'
-// @import '~bulma/sass/elements/other.sass'
-// @import '~bulma/sass/elements/progress.sass'
-// @import '~bulma/sass/elements/table.sass'
-// @import '~bulma/sass/elements/title.sass'
+@import '~bulma/sass/elements/box.sass'
+@import '~bulma/sass/elements/content.sass'
 
-// @import '~bulma/sass/form/_all.sass'
+@import '~bulma/sass/helpers/color.sass'
+@import '~bulma/sass/helpers/flexbox.sass'
+@import '~bulma/sass/helpers/spacing.sass'
+@import '~bulma/sass/helpers/typography.sass'
+@import '~bulma/sass/helpers/visibility.sass'
 
-// @import '~bulma/sass/grid/_all.sass'
+@import '~bulma/sass/elements/image.sass'
+@import '~bulma/sass/elements/title.sass'
+
+@import '~bulma/sass/grid/_all.sass'
 
 // @import '~bulma/sass/components/navbar.sass'
 // @import '~bulma/sass/components/dropdown.sass'
 // @import '~bulma/sass/components/media.sass'
 
-// @import '~bulma/sass/layout/_all.sass'
+@import '~bulma/sass/layout/_all.sass'
 
 
 // USE BULMA AS A WHOLE LIKE THIS (before production, switch to modular to reduce size)
-@import '~bulma/bulma.sass'
+// @import '~bulma/bulma.sass'
 
 //breakpoints
 $very-tiny: 199px
@@ -568,11 +575,11 @@ $xl: 1600px
     display: none
   .conditionalOpen
     animation: slideOpen normal forwards ease-in-out
-    animation-duration: 1s
+    animation-duration: .7s
     overflow: hidden
   .conditionalClose
     animation: slideClosed normal forwards ease-in-out
-    animation-duration: 1s
+    animation-duration: .7s
     overflow: hidden
   .fullheader
     position: auto

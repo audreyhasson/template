@@ -10,8 +10,8 @@ block page
       each point in thesis
         - let [chicken, url] = point
         - let path = "/learning" + url
-        .link(class={'is-current-point': chicken === header})
-          a.thesis-links(href=path) #{chicken}
+        a.link(href=path, class={'is-current-point': chicken === header})
+          p.thesis-links #{chicken}
     //navigationy stuff here 
     block thesis
     

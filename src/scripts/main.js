@@ -39,7 +39,7 @@ function openNav(object) {
         {marginTop: margin},
         {marginTop: "0px"},
       ],
-      {duration: 500, fill: 'forwards', ease: 'ease-in-out'}
+      {duration: 400, fill: 'forwards', ease: 'ease-in-out'}
     );
     var navSlideDown = new Animation(slideDown);
     navSlideDown.play();
@@ -58,7 +58,7 @@ function closeNav(object) {
         {marginTop: "0px"},
         {marginTop: margin},
       ],
-      {duration: 500, fill: 'forwards', ease: 'ease-in-out'}
+      {duration: 400, fill: 'forwards', ease: 'ease-in-out'}
     );
     var navSlideUp = new Animation(slideUp);
     navSlideUp.play();
