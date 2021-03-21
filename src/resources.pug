@@ -2,6 +2,9 @@ extends templates/basicPage.pug
 
 block prepend header
   - let page = "Resources"
+
+block append meta
+  meta(name="description", content="Here are some resources to help you learn about cyberostracism!")
   
 block page 
   .page-container.has-background-light.pb-4

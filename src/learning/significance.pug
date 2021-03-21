@@ -3,6 +3,9 @@ extends /../templates/learn-nav.pug
 block prepend header
   - let header = "Significance"
 
+block append meta
+  meta(name="description", content="This is a complicated problem with a simple solution: Be nice to all bubbles.")
+
 append thesis
   p.title.has-text-weight-bold.py-5.is-size-1.my-0.is-size-2-mobile #{header}
   section 

@@ -3,6 +3,9 @@ extends templates/basicPage.pug
 block prepend header
   - const page = "About";
 
+block append meta
+  meta(name="description", content="Learn about Audrey Hasson and the help she had in her project.")
+
 block page
   .page-container.has-background-light.pb-6
     p.title.has-text-weight-bold.has-text-dark.py-5.is-size-1.my-0.is-size-2-mobile #{page}

@@ -3,11 +3,12 @@ extends templates/basicPage.pug
 block prepend header
   - const page = "Quiz";
 
+block append meta
+  meta(name="description", content="Take this miniquiz to test your cyberostracism knowledge!")
+
 block page
   .quiz-page
     #quiz-container
-    
-    
 
 block append morescripts
   script(src='https://unpkg.com/react@17/umd/react.development.js') 

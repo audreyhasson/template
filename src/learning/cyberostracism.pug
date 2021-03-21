@@ -3,6 +3,9 @@ extends /../templates/learn-nav.pug
 block prepend header
   - let header = "Cyberostracism"
 
+block append meta
+  meta(name="description", content="Cyberostracism can be measured using the Need-Threat model Dr. Kipling Williams designed.")
+
 append thesis
   p.title.has-text-weight-bold.py-5.is-size-1.my-0.is-size-3-mobile #{header}
   section.columns

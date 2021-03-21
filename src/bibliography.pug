@@ -2,6 +2,9 @@ extends templates/basicPage.pug
 
 block prepend header
   - let page = "Works Cited"
+  
+block append meta
+  meta(name="description", content="Citations and references")
 
 block page 
   .page-container.has-background-light.pb-4

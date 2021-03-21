@@ -2,6 +2,13 @@ extends templates/basicPage.pug
 
 block prepend header
   - const page = "Home";
+  
+block append meta
+  meta(name="description", content="The brand of your phone has started picking your friends for you.")
+  
+block append styles 
+  link(rel='stylesheet', href='/styles/owl/owl.carousel.min.css')
+  link(rel='stylesheet', href='/styles/owl/owl.theme.default.min.css')
 
 block page
   .has-background-dark.carousel-container

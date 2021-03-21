@@ -2,6 +2,9 @@ extends /../templates/learn-nav.pug
 
 block prepend header
   - let header = "Marketing"
+  
+block append meta
+  meta(name="description", content="A messaging app can be a marketing ploy.")
 
 append thesis
   p.title.has-text-weight-bold.py-5.is-size-1.my-0.is-size-2-mobile #{header}
