@@ -30,7 +30,7 @@
       ["Don't be texting me with those green message bubbles", "@Cherry_Gang", "https://twitter.com/Cherry_Gang/status/870759171347537920"]
     ],
     thesis: [
-      ["Teenagers", "index.pug"],
+      ["Teenagers", "teenagers.pug"],
       ["Cyberostracism", "cyberostracism.pug"],
       ["iMessage", "iMessage.pug"],
       ["Marketing", "marketing.pug"],
