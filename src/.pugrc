@@ -5,7 +5,7 @@
     companyName: "Audrey Hasson",
     links: [
       ["Home", "/", "Let's talk texts", "fas fa-home"],
-      ["Learning", "/learning/index.pug", "Food for thought", "fas fa-cubes"],
+      ["Learning", "/teenagers.pug", "Food for thought", "fas fa-cubes"],
       ["Resources", "/resources.pug", "Educational tools available", "fas fa-book-open"],
       ["About", "/about.pug", "Meet the author", "fas fa-users"],
     ],
@@ -30,11 +30,11 @@
       ["Don't be texting me with those green message bubbles", "@Cherry_Gang", "https://twitter.com/Cherry_Gang/status/870759171347537920"]
     ],
     thesis: [
-      ["Teenagers", "/index.pug"],
-      ["Cyberostracism", "/cyberostracism.pug"],
-      ["iMessage", "/iMessage.pug"],
-      ["Marketing", "/marketing.pug"],
-      ["Significance", "/significance.pug"],
+      ["Teenagers", "index.pug"],
+      ["Cyberostracism", "cyberostracism.pug"],
+      ["iMessage", "iMessage.pug"],
+      ["Marketing", "marketing.pug"],
+      ["Significance", "significance.pug"],
     ],
     bibliography: [
       '"The Apple Ecosystem: Explained!" YouTube, uploaded by Marques Brownlee, youtu.be/KB4_WIPE7vo. Accessed 17 Oct. 2019.',

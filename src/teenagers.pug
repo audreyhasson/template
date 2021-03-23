@@ -1,0 +1,16 @@
+extends templates/learn-nav.pug
+
+block prepend header
+  - let header = "Teenagers"
+  
+block append meta
+  meta(name="description", content="Based on recent data, nearly all teens own and regularly use phones.")
+
+append thesis
+  p.title.has-text-weight-bold.py-5.is-size-1.my-0.is-size-2-mobile #{header}
+  section
+    img.right-image(src="images/teenagers.svg", alt="Two teens with phones").px-5
+    p Teens own phones. Or at least, 95%<a href="bibliography.pug#24"><sup>24</sup></a> of them do, a percentage that’s been steadily rising for the past decade. Teens named texting a primary method of communication. 20% would say they text “almost constantly”, and 80% text daily<a href="bibliography.pug#24"><sup>24</sup></a>. So if practically everyone’s got a phone and they’re all texting, being included in the conversation matters. Online communication isn’t just normal, it’s the default. Maybe this wasn’t the case for kids growing up a decade ago, but the modern teenager’s social life happens online. Friendships, relationships, and cliques form over text messages and group chats. <br><br> Teens also make up the most socially sensitive age group. As Harvard professor Leah Somerville put it, “Adolescents display heightened sensitivity to social evaluation… These features of social sensitivity appear to be instantiated by robust response properties in neural circuitry important to assigning value to social affective information during adolescence.”<a href="bibliography.pug#24"><sup>25</sup></a> In English: the parts of the brain that deal with social evaluation (being judged) are more active in adolescents. 
+  .columns.is-flex.pt-4.mx-0.is-mobile
+    .column.next-button
+      a(href="cyberostracism.pug") Next <i class="fas fa-arrow-right"></i>

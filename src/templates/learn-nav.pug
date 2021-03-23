@@ -9,8 +9,7 @@ block page
     .l-links-container.pt-5.desktop-only
       each point in thesis
         - let [chicken, url] = point
-        - let path = "/learning" + url
-        a.link(href=path, class={'is-current-point': chicken === header})
+        a.link(href=url, class={'is-current-point': chicken === header})
           p.thesis-links #{chicken}
     //navigationy stuff here 
     block thesis
