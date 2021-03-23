@@ -41,6 +41,25 @@ body
 .footer
   flex-shrink: 0
 
+.foot-c
+  width: 90%
+  margin: auto
+
+.footer-link
+  border: 2px $light solid
+  border-radius: 10px
+  display: inline-block
+  padding: .5rem
+  margin: 1rem auto
+
+a.footer-link
+  color: $light
+
+.footer-link:hover
+  transition: .3s
+  background-color: $light
+  color: $dark
+
 .columns.my-0
   margin: 0
 
@@ -114,7 +133,7 @@ i.flip-burger
   border-radius: 100px
 
 .has-text-gray
-  color: #888888
+  color: #525252
 
 .box.navlinks.is-active
   background-color: $info
@@ -125,6 +144,9 @@ i.flip-burger
 .box.navlinks.is-active i
   color: $light-gray
   background-color: white
+
+sup, a
+  color: #0025ba
 
 //onhover
 .box.navlinks:hover
@@ -564,6 +586,8 @@ $xl: 1600px
     display: inline-table
   .question
     padding: .5rem 1rem
+  .results, .results-spiel, .results-title
+    padding: 1rem
   .resource-buttons, .resource-buttons a
     margin: 1rem auto
 

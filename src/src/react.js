@@ -6,6 +6,7 @@ const ten = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let move = false;
 const timeTotal = 15000;
 const wait = 1000;
+let timerVar = null;
 
 function disorder(arg) {
   for (var i = 0; i < arg.length; i++) {
@@ -125,6 +126,7 @@ class Quiz extends React.Component {
       stop: false,
       timeLeft: timeTotal,
       timeStarted: false,
+      clicked: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.countDown = this.countDown.bind(this);
@@ -156,25 +158,34 @@ class Quiz extends React.Component {
         }
       } else if (this.props.data === "show" && this.state.timeLeft > 0 && !this.state.timeStarted) {
       //excute -1 function every second
-      setInterval(this.countDown, 1000);
+      let timerVar = setInterval(this.countDown, 1000);
+      console.log("timer's going");
       this.setState((state) => {
         return{timeStarted: true}
       })
     }
   }
   countDown(){
-    this.setState((state) => {
-      return {timeLeft: state.timeLeft - 1000}
-    });
+    if (!this.state.clicked) {
+      this.setState((state) => {
+        return {timeLeft: state.timeLeft - 1000}
+      });
+    }
   }
   handleChange(choice) {
     const theirPick = event.target;
+    this.setState((state) => {
+      return {clicked: true}
+    })
     if (this.state.progress === 9) {
       if (choice != null) {
         if (choice[1]) {
           setTimeout(() => {
             this.setState((state) => {
-              return {right: state.right +1}
+              return {
+                right: state.right +1,
+                clicked: false,
+              }
             });
           }, wait);
         }
@@ -203,6 +214,7 @@ class Quiz extends React.Component {
             progress: newProg,
             question: newQuestion,
             timeLeft: timeTotal,
+            clicked: false,
           }
         });
       }, wait)
@@ -214,17 +226,20 @@ class Quiz extends React.Component {
     let fullList = response.parentElement;
     let wrongOnes = fullList.getElementsByClassName("n");
     let correctAnswer = fullList.getElementsByClassName("v");
-    if (response.tagName === "LI") {
-      correctAnswer.item(0).classList.add("correct-answer");
+    if (correctAnswer.item(0).classList.contains("correct-answer")) {
+      return null;
+    } else {
+      if (response.tagName === "LI") {
+        correctAnswer.item(0).classList.add("correct-answer");
+      }
+      if (!response.classList.contains("v") && response.tagName === "LI") {
+        response.classList.add("wrong-answer");
+      }
+      setTimeout(() => {
+        response.classList.remove("wrong-answer");
+        correctAnswer.item(0).classList.remove("correct-answer");
+      }, wait)
     }
-    if (!response.classList.contains("v") && response.tagName === "LI") {
-      response.classList.add("wrong-answer");
-    }
-    setTimeout(() => {
-      response.classList.remove("wrong-answer");
-      correctAnswer.item(0).classList.remove("correct-answer");
-    }, wait)
-
   }
   render() {
     const time = this.state.timeLeft/1000;
@@ -242,7 +257,7 @@ class Quiz extends React.Component {
             </div>
             <div className="answers quiz-element" onClick={() => this.handleColors()}>
               {this.state.question[1].map((answer, index) => (
-                <li key={index} className={answer[1]? "v" : "n"} onClick={() => this.handleChange(answer)}>{answer}</li>
+                <li key={index} className={answer[1]? "v" : "n"} onClick={() => this.state.clicked ? null : this.handleChange(answer)}>{answer}</li>
               ))}
             </div>
           </div>
@@ -273,7 +288,7 @@ class Results extends React.Component {
           </div>
           <div className="results-spiel">
             <p>{correct>= 8 ? goodJob : correct < 8 && correct > 5 ? niceTry : yikes}</p>
-            <a href="javascript:window.location.href=window.location.href" className="retry-button has-text-white has-background-dark">TRY AGAIN</a>
+            <a href="" className="retry-button has-text-white has-background-dark">TRY AGAIN</a>
           </div>
         </div>
       )
